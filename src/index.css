@@ -1,1 +1,70 @@
 @import "tailwindcss";
+
+@theme {
+  --font-dm-sans: "DM Sans", sans-serif; 
+}
+
+.album-reel {
+  --reel-row-height: 5.5rem;
+  --reel-gap: 0.5rem;
+  height: 17.5rem;
+}
+
+.reel-track {
+  display: grid;
+  gap: var(--reel-gap);
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+.reel-card {
+  height: var(--reel-row-height);
+}
+
+@keyframes selected-release {
+  from {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+
+.selected-release {
+  animation: selected-release 100ms ease-out both;
+}
+
+@keyframes unselected-release {
+  from {
+    filter: blur(0);
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  to {
+    filter: blur(1px);
+    opacity: 0.2;
+    transform: scale(0.98);
+  }
+}
+
+.unselected-release {
+  animation: unselected-release 100ms ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .selected-release {
+    animation: none;
+    opacity: 1;
+    transform: scale(1.08);
+  }
+
+  .unselected-release {
+    animation: none;
+    filter: blur(1px);
+    opacity: 0.2;
+    transform: scale(0.98);
+  }
+
+}
