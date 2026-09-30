@@ -22,7 +22,7 @@ const App = () => {
   };
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <div className={`min-h-screen font-dm-sans transition-colors duration-300 ${isDark ? 'bg-zinc-950 text-zinc-100' : 'bg-zinc-100 text-zinc-950'}`}>
         <header className={`border-b backdrop-blur-md transition-colors duration-300 ${isDark ? 'border-white/15 bg-zinc-950/90' : 'border-black/15 bg-zinc-100/90'}`}>
           <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-5 sm:px-8 lg:px-10">
